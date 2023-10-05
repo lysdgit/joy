@@ -1,0 +1,15 @@
+ply
+format ascii 1.0
+element vertex 8
+property float x
+property float y
+property float z
+end_header
+60.688 71.71 67.44 
+60.790 71.834 67.354 
+61.000 71.19 67.079  
+60.527 71.493 67.418 
+60.738 71.886 67.316 
+60.564 71.487 67.467 
+60.917 71.335 67.673 
+60.778 71.472 67.963
