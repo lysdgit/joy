@@ -13,7 +13,7 @@ def timer(n):
     current_time = datetime.now()  
 
     # 获取HTML页面内容
-    url = "http://192.168.1.120"  # 替换为实际的HTML页面URL
+    url = "http://192.168.1.104"  # 替换为实际的HTML页面URL
     response = requests.get(url)
     html_content = response.text
 
@@ -48,7 +48,7 @@ def timer(n):
     time.sleep(n)
 
 #10秒执行一次
-timer(60)
+timer(120)
 
 #测试是否阻塞
 print("测试是否阻塞")
