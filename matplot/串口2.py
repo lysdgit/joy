@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from matplotlib import animation
 
 # 设置串口参数
-port = 'COM10'  # 修改为你的串口号
-baudrate = 115200  # 波特率
+port = 'COM1'  # 修改为你的串口号
+baudrate = 9600  # 波特率
 
 # 创建串口对象
 ser = serial.Serial(port, baudrate)
