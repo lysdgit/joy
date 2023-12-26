@@ -26,7 +26,7 @@ connection.close()
 @app.route("/")
 def index():
     # return "Hello, world!"
-    return render_template("index.html", rows=rows)
+    return render_template("aht.html", rows=rows)
 
 if __name__ == "__main__":
     app.run()

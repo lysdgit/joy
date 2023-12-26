@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<<<<<<< HEAD
+    <title>Database Query Results</title>
+</head>
+<body>
+    <h1>Database Query Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>序      号</th>
+                <th>温      度</th>
+                <th>湿      度</th>
+                <th>时      间</th>
+=======
+    <title>Weather Query Results</title>
+</head>
+<body>
+    <h1>Weather Query Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>时间</th>
+                <th>温度</th>
+                <th>体感</th>
+                <th>图标</th>
+                <th>文本</th>
+                <th>风向360</th>
+                <th>风向</th>
+                <th>风力等级</th>
+                <th>风速</th>
+                <th>湿度</th>
+                <th>降水量</th>
+                <th>气压</th>
+                <th>能见度</th>
+                <th>云量</th>
+                <th>露点</th>
+>>>>>>> 34c86ef (1)
+                <!-- Add more table headers if needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+<<<<<<< HEAD
+                <td>{{ row[0]   }}</td>
+                <td>{{ row[1]   }}</td>
+                <td>{{ row[2]   }}</td>
+                <td>{{ row[3]   }}</td>
+=======
+                 <td>{{ row[0] }}</td>
+                    <td>{{ row[15] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                    <td>{{ row[6] }}</td>
+                    <td>{{ row[7] }}</td>
+                    <td>{{ row[8] }}</td>
+                    <td>{{ row[9] }}</td>
+                    <td>{{ row[10] }}</td>
+                    <td>{{ row[11] }}</td>
+                    <td>{{ row[12] }}</td>
+                    <td>{{ row[13] }}</td>
+                    <td>{{ row[14] }}</td>
+                    
+>>>>>>> 34c86ef (1)
+                <!-- Add more table cells if needed -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
