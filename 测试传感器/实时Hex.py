@@ -5,7 +5,7 @@ from PyQt5.QtCore import QTimer
 import numpy as np
 
 # 设置串口参数
-ser = serial.Serial('COM4', 115200)  # 根据实际情况修改串口号和波特率
+ser = serial.Serial('COM1', 115200)  # 根据实际情况修改串口号和波特率
 # 十六进制数据
 hex_data = bytes.fromhex('FE F0 03 01 00 00 00 00')
 

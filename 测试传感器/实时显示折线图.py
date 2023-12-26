@@ -1,47 +1,42 @@
-import serial
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from readnum import readdis  # 假设你的模块为readnum，且包含readdis函数
 
-# 设置串口参数
-ser = serial.Serial('COM4', 9600)  # 根据实际情况修改串口号和波特率
 
-# 初始化数据列表
+# 创建一个图形窗口和坐标轴
+fig, ax = plt.subplots()
 x_data = []
 y_data = []
 
-# 创建折线图对象
-fig, ax = plt.subplots()
+# 创建一个空的 plot 对象，用于更新数据
+line, = ax.plot([], [], marker='o', linestyle='-', color='b')
 
-# 创建空折线对象
-line, = ax.plot([], [])
+# 设置坐标轴标签和标题
+ax.set_xlabel('Time')
+ax.set_ylabel('Value')
+ax.set_title('Real-time Data Visualization')
 
-# 设置坐标轴范围
-ax.set_xlim(0, 10)  # 修改 x 轴范围
-ax.set_ylim(0, 100)  # 修改 y 轴范围
+# 定义更新数据的函数
+def update(frame):
+    result_str = readdis(6, 115200, 2, 0.5)  # 假设readdis返回一个字符串
+    result_float = float(result_str)  # 将字符串转换为浮点数
+    print(result_float)
+    if result_float != '255.0':
+        x_data.append(frame)
+        y_data.append(result_float)
 
-# 更新函数
-def update(data):
-    x_data.append(data[0])  # 将新数据添加到 x 数据列表
-    y_data.append(data[1])  # 将新数据添加到 y 数据列表
+        # 更新 plot 对象的数据
+        line.set_data(x_data, y_data)
 
-    line.set_data(x_data, y_data)  # 更新折线数据
+        # 调整坐标轴范围（可选）
+        ax.relim()
+        # ax.set_ylim(80, 110)
+        ax.autoscale_view()
 
-    # 自动调整坐标轴范围，可以根据需要取消注释
-    # ax.relim()
-    # ax.autoscale_view()
+        return line,
 
-    plt.pause(0.01)  # 更新绘图并暂停一小段时间
+# 创建动画
+animation = FuncAnimation(fig, update, frames=range(1000), interval=0.01)
 
-# 实时读取串口数据并绘制折线图
-while True:
-    try:
-        data = ser.readline().decode().strip()  # 读取一行数据并解码
-        data = data.split(',')  # 将逗号分隔的字符串转换为浮点数列表
-
-        update(data)  # 更新折线图数据
-
-    except KeyboardInterrupt:
-        ser.close()  # 当按下 Ctrl+C 键时关闭串口
-        break
-
-# 显示折线图
+# 显示图形窗口
 plt.show()

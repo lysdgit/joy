@@ -2,10 +2,10 @@ import serial
 import time
 
 # 创建串口对象
-ser = serial.Serial('COM4', 115200, timeout=1)  # 根据实际情况修改串口号和波特率
+ser = serial.Serial('COM6', 115200, timeout=1)  # 根据实际情况修改串口号和波特率
 
 # 十六进制字符串
-hex_string = 'FEF0030100000000'
+hex_string = 'FEF0020100000000'
 
 while True:
     try:
